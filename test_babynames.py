@@ -4,6 +4,7 @@
 import unittest
 from babynames import main, extract_names
 
+
 class TestBabynames(unittest.TestCase):
     def test_extract_names(self):
         pass
