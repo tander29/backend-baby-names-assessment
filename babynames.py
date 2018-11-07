@@ -40,11 +40,6 @@ Suggested milestones for incremental development:
 
 
 def extract_names(filename):
-    """
-    Given a file name for baby.html, returns a list starting with the year string
-    followed by the name-rank strings in alphabetical order.
-    ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
-    """
 
     year_match = re.search(r'\d+', str(filename))
     year = year_match.group()
@@ -73,6 +68,12 @@ def extract_names(filename):
     return '\n'.join(sorted_ranks) + '\n'
 
 
+def write_new_file(filename):
+    new_file_name = filename[4:] + '.summary'
+    with open(new_file_name, 'w+') as f:
+        f.write(extract_names(filename))
+
+
 def create_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('--s', '--summaryfile',
@@ -99,9 +100,12 @@ def main():
         sys.exit(1)
 
     file_list = args.files
-
+    print(args)
     for filename in file_list:
-        print(extract_names(filename))
+        if args.s:
+            write_new_file(filename)
+        else:
+            print(extract_names(filename))
 
     # option flag
     # create_summary = args.summaryfile
