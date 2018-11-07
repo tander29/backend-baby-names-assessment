@@ -45,7 +45,7 @@ Abbie 650
 
 ## Part B
 
-Suppose instead of printing the text to stdout, we want to write files containing the text. If the flag `--summaryfile` is present, do the following: for each input file 'foo.html', instead of printing to standard output, write a new file `foo.html.summary` that contains the summary text for that file.
+Suppose ipart to write files containing the text. If the flag `--summaryfile` is present, do the following: for each input file 'foo.html', instead of printing to standard output, write a new file `foo.html.summary` that contains the summary text for that file.
 
 Once the `--summaryfile` feature is working, run the program on all the files using _ like this: `python babynames.py --summaryfile baby_.html`. This generates all the summaries in one step. (The standard behavior of the shell is that it expands the "baby\*.html" pattern into the list of matching filenames, and then the shell runs babynames.py, passing in all those filenames in the sys.argv list.)
 
